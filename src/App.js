@@ -4,11 +4,11 @@ import { useState } from "react";
 //const url = "https://api.twitter.com/2/spaces/search?query=startup";
 
 function App() {
-  const [data, setData] = useState([]);
-  const [input, setInput] = useState("");
+  // const [data, setData] = useState([]);
+  // const [input, setInput] = useState("");
 
   function inputHandler(e) {
-    setInput(e.target.value);
+    //
   }
 
   function btnHandler() {

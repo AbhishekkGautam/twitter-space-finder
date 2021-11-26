@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 
-const url = "https://api.twitter.com/2/spaces/search?query=hello";
+//const url = "https://api.twitter.com/2/spaces/search?query=startup";
 
 function App() {
   const [data, setData] = useState([]);
@@ -19,8 +19,12 @@ function App() {
     //   .catch((error) => {
     //     console.log(error);
     //   });
-    fetch(url, {
-      headers: { Authentication: `Bearer ${process.env.REACT_APP_TOKEN}` },
+    fetch("/netlify/functions/auth-fetch", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json, text/plain, */*",
+        Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
+      },
     })
       .then((res) => res.json())
       .then((json) => console.log(json))

@@ -1,7 +1,8 @@
 import "./App.css";
 //import { useState } from "react";
 
-//const url = "https://api.twitter.com/2/spaces/search?query=startup";
+const url =
+  "https://cors-anywhere.herokuapp.com/https://api.twitter.com/2/spaces/search?query=startup";
 
 function App() {
   // const [data, setData] = useState([]);
@@ -19,11 +20,10 @@ function App() {
     //   .catch((error) => {
     //     console.log(error);
     //   });
-    fetch("/.netlify/functions/space", {
+    fetch(url, {
       headers: {
         // "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
-        accept: "Accept: application/json",
       },
     })
       .then((res) => res.json())

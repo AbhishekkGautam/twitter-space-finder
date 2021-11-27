@@ -2,7 +2,7 @@ import "./App.css";
 //import { useState } from "react";
 
 const url =
-  "https://cors-anywhere.herokuapp.com/https://api.twitter.com/2/spaces/search?query=startup";
+  "https://cors-anywhere-venky.herokuapp.com/https://api.twitter.com/2/spaces/search?query=startup";
 
 function App() {
   // const [data, setData] = useState([]);

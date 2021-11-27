@@ -19,10 +19,11 @@ function App() {
     //   .catch((error) => {
     //     console.log(error);
     //   });
-    fetch("/netlify/functions/auth-fetch", {
+    fetch("/.netlify/functions/auth-fetch", {
       headers: {
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
+        accept: "Accept: application/json",
       },
     })
       .then((res) => res.json())

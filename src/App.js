@@ -22,7 +22,6 @@ function App() {
     fetch("/netlify/functions/auth-fetch", {
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json, text/plain, */*",
         Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
       },
     })
@@ -32,7 +31,7 @@ function App() {
   }
 
   // console.log(`Bearer ${token}`)
-  console.log(`Bearer ${process.env.REACT_APP_TOKEN}`);
+  //console.log(`Bearer ${process.env.REACT_APP_TOKEN}`);
 
   return (
     <div className="App">

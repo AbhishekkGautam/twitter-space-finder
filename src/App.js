@@ -1,28 +1,23 @@
 import "./App.css";
-//import { useState } from "react";
+import { useState } from "react";
+import SpacesList from "./components/SpacesList";
 
-const url =
-  "https://cors-anywhere-venky.herokuapp.com/https://api.twitter.com/2/spaces/search?query=startup";
+// const url =
+//   "https://cors-anywhere-venky.herokuapp.com/https://api.twitter.com/2/spaces/search?query=";
 
 function App() {
-  // const [data, setData] = useState([]);
-  // const [input, setInput] = useState("");
+  const [json, setJson] = useState({});
+  const [input, setInput] = useState("");
 
   function inputHandler(e) {
-    //
+    setInput(e.target.value);
   }
 
+  // const urlWithInput = `${url}${input}&expansions=creator_id&user.fields=created_at&space.fields=id,title,created_at,creator_id,participant_count,scheduled_start`;
+
   function btnHandler() {
-    // axios
-    //   .get(url, { headers: { Authorization: `Bearer ${token}` } })
-    //   .then((res) => res.json())
-    //   .then((json) => console.log(json))
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-    fetch(url, {
+    fetch("/.netlify/functions/space", {
       headers: {
-        // "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
       },
     })
@@ -31,15 +26,15 @@ function App() {
       .catch((error) => console.log(error));
   }
 
-  // console.log(`Bearer ${token}`)
-  //console.log(`Bearer ${process.env.REACT_APP_TOKEN}`);
+  const { data, includes } = json;
+  //console.log("from json", data);
 
   return (
     <div className="App">
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :</p>
+      <h1>Twitter Space Finder</h1>
       <input type="text" onChange={inputHandler} />
       <button onClick={btnHandler}>Find Spaces</button>
+      <SpacesList spaceData={data} userData={includes} />
     </div>
   );
 }

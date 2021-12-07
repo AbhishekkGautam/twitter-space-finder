@@ -25,10 +25,14 @@ const SpaceCard = ({ spaces, user }) => {
       </h2>
       <p style={{ color: "orange" }}>{spaces.state}</p>
       {user &&
-        user.map((user, id) => {
+        user.map((user, index) => {
           return (
-            <div key={id}>
-              <h3>Created by: {user.name}</h3>
+            <div key={index}>
+              <h3>
+                {spaces.creator_id === user.id
+                  ? `Created by: ${user.name}`
+                  : ""}
+              </h3>
             </div>
           );
         })}

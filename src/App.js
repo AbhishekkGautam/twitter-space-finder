@@ -7,16 +7,16 @@ import SpacesList from "./components/SpacesList";
 
 function App() {
   const [json, setJson] = useState({});
-  //const [input, setInput] = useState("");
+  const [input, setInput] = useState("");
 
   function inputHandler(e) {
-    //setInput(e.target.value);
+    setInput(e.target.value);
   }
 
   // const urlWithInput = `${url}${input}&expansions=creator_id&user.fields=created_at&space.fields=id,title,created_at,creator_id,participant_count,scheduled_start`;
 
   function btnHandler() {
-    fetch("/.netlify/functions/space", {
+    fetch(`/.netlify/functions/space?query=${input}`, {
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
       },

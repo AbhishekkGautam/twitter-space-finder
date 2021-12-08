@@ -13,8 +13,6 @@ function App() {
     setInput(e.target.value);
   }
 
-  // const urlWithInput = `${url}${input}&expansions=creator_id&user.fields=created_at&space.fields=id,title,created_at,creator_id,participant_count,scheduled_start`;
-
   function btnHandler() {
     fetch(`/.netlify/functions/space?query=${input}`, {
       headers: {
@@ -27,7 +25,6 @@ function App() {
   }
 
   const { data, includes } = json;
-  //console.log("from json", data);
 
   return (
     <div className="App">

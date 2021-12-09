@@ -71,6 +71,15 @@ function App() {
             <SpacesList spaceData={data} userData={includes} />
           )}
         </div>
+        <h1 className="text-center text-gray-300">
+          Made with a lot of procrastination by{" "}
+          <a
+            href="https://twitter.com/helloAbhishekk"
+            className="text-blue-400 underline"
+          >
+            abhishek.
+          </a>
+        </h1>
       </div>
     </div>
   );

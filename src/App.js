@@ -16,6 +16,7 @@ function App() {
   const [json, setJson] = useState({});
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState("");
+  const [isSuccess, setIsSuccess] = useState(true);
 
   function inputHandler(e) {
     setInput(e.target.value);
@@ -26,6 +27,11 @@ function App() {
       const result = await authAxios.get(`?query=${input}`);
       setLoading(false);
       setJson(result.data);
+      if (!result.data.data) {
+        setIsSuccess(false);
+      } else {
+        setIsSuccess(true);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -67,11 +73,13 @@ function App() {
         <div className="">
           {loading ? (
             <h1 className="text-center">Hang On... Spaces are on the way!</h1>
-          ) : (
+          ) : isSuccess ? (
             <SpacesList spaceData={data} userData={includes} />
+          ) : (
+            <h1 className="text-center">No Results Found.</h1>
           )}
         </div>
-        <h1 className="text-center text-gray-300">
+        <h1 className="text-center text-gray-300 pt-6">
           Made with a lot of procrastination by{" "}
           <a
             href="https://twitter.com/helloAbhishekk"

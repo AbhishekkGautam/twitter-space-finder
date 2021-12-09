@@ -9,7 +9,7 @@ exports.handler = async function (event) {
 
   const { REACT_APP_TOKEN } = process.env;
 
-  const TWITTER_API = `https://api.twitter.com/2/spaces/search?query=${queryString.query}&expansions=creator_id&user.fields=created_at&space.fields=id,title,created_at,creator_id,participant_count,scheduled_start`;
+  const TWITTER_API = `https://api.twitter.com/2/spaces/search?query=${queryString.query}&expansions=creator_id&user.fields=created_at,profile_image_url&space.fields=id,title,created_at,creator_id,participant_count,scheduled_start`;
 
   const response = await fetch(TWITTER_API, {
     headers: {

@@ -14,26 +14,53 @@ const SpaceCard = ({ spaces, user }) => {
   });
 
   return (
-    <div>
-      <h1 style={{ color: "dodgerblue" }}>{spaces.title}</h1>
-      <h2>
-        {spaces.state === "live"
-          ? "Ongoing"
-          : `Starting on: ${scheduledDate} @ ${scheduledTime}`}
-      </h2>
-      <p style={{ color: "orange" }}>{spaces.state}</p>
-      {user &&
-        user.map((user, index) => {
-          return (
-            <div key={index}>
-              <h3>
-                {spaces.creator_id === user.id
-                  ? `Created by: ${user.name}`
-                  : ""}
-              </h3>
-            </div>
-          );
-        })}
+    <div className="bg-primaryGray rounded-xl">
+      <div className="px-6 py-5">
+        <a href={`https://twitter.com/i/spaces/${spaces.id}`}>
+          <h1 className="text-base font-semibold">{spaces.title}</h1>
+          <div className="text-xs font-normal pt-3">
+            {spaces.state === "live" ? (
+              <h2 className="text-primaryGreen-600">{`LIVE NOW - ${spaces.participant_count} Participants`}</h2>
+            ) : (
+              `Scheduled on: ${scheduledDate} @ ${scheduledTime}`
+            )}
+          </div>
+        </a>
+      </div>
+      <div className="bg-secondaryGray rounded-lg">
+        {user &&
+          user.map((user, index) => {
+            return spaces.creator_id === user.id ? (
+              <div
+                key={index}
+                className="px-6 py-5 flex items-center justify-between"
+              >
+                <div className="">
+                  <a href={`https://twitter.com/${user.username}`}>
+                    <img
+                      className="w-10 h-10 rounded-full"
+                      src={user.profile_image_url}
+                      alt="user profile"
+                    />
+                  </a>
+                </div>
+                <div className="">
+                  {spaces.state === "scheduled" ? (
+                    <div className="text-sm text-gray-100">Upcoming</div>
+                  ) : (
+                    <button className="px-4 py-2 text-gray-100 text-sm rounded outline-none bg-primaryGray">
+                      <a href={`https://twitter.com/i/spaces/${spaces.id}`}>
+                        Join Space
+                      </a>
+                    </button>
+                  )}
+                </div>
+              </div>
+            ) : (
+              ""
+            );
+          })}
+      </div>
     </div>
   );
 };

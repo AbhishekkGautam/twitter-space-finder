@@ -3,12 +3,11 @@ import SpaceCard from "./SpaceCard";
 
 const SpacesList = ({ spaceData, userData }) => {
   return (
-    <div>
-      <h1>Spaces</h1>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full px-5 md:px-8 lg:px-0">
       {spaceData &&
         spaceData.map((spaces, id) => {
           return (
-            <div className="" key={id}>
+            <div key={id}>
               <SpaceCard spaces={spaces} user={userData.users} />
             </div>
           );

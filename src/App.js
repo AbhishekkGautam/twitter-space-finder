@@ -55,7 +55,7 @@ function App() {
   return (
     <div className="bg-darkGray min-h-screen text-white">
       <div className="container mx-auto md:max-w-4xl">
-        <div className="text-center pt-20 pb-24 md:p-32">
+        <div className="text-center pt-16 pb-32 md:pt-32 md:pb-48">
           <h1 className="text-2xl">Twitter Space Finder</h1>
           <input
             className="text-white bg-primaryGray w-64 md:w-96 mt-12 px-4 py-3 outline-none leading-normal text-sm rounded-3xl"

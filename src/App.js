@@ -79,7 +79,7 @@ function App() {
             <h1 className="text-center">No Results Found.</h1>
           )}
         </div>
-        <h1 className="text-center text-gray-300 pt-6">
+        <h1 className="text-center text-gray-300 pt-6 pb-6">
           Made with a lot of procrastination by{" "}
           <a
             href="https://twitter.com/helloAbhishekk"

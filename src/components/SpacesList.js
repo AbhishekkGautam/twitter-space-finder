@@ -6,7 +6,7 @@ const SpacesList = ({ spaceData, userData }) => {
   return (
     <motion.div
       animate={{ y: -50 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.6 }}
       className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full px-5 md:px-8"
     >
       {spaceData &&

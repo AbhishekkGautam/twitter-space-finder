@@ -81,7 +81,7 @@ function App() {
             <h1 className="text-center pb-10 -mt-10">No Results Found.</h1>
           )}
         </div>
-        <h1 className="text-center text-gray-300 pt-10 pb-6 px-5">
+        <h1 className="text-center text-gray-300 pt-5 md:pt-10 pb-6 px-10 md:px-5">
           Made with a lot of procrastination by{" "}
           <a
             href="https://twitter.com/helloAbhishekk"

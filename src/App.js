@@ -72,16 +72,16 @@ function App() {
         </div>
         <div className="">
           {loading ? (
-            <h1 className="text-center text-lg">
+            <h1 className="text-center text-lg pb-10 -mt-10">
               Hang On... Spaces are on the way!
             </h1>
           ) : isSuccess ? (
             <SpacesList spaceData={data} userData={includes} />
           ) : (
-            <h1 className="text-center">No Results Found.</h1>
+            <h1 className="text-center pb-10 -mt-10">No Results Found.</h1>
           )}
         </div>
-        <h1 className="text-center text-gray-300 pt-16 pb-6 px-5">
+        <h1 className="text-center text-gray-300 pt-10 pb-6 px-5">
           Made with a lot of procrastination by{" "}
           <a
             href="https://twitter.com/helloAbhishekk"
